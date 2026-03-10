@@ -125,16 +125,77 @@
       color: #ffffff;
     }
 
-    body.has-light-nav nav a {
-      color: #111827;
-    }
+    /* ─────────────── MOBILE-SPECIFIC NAV COLOR STATES ─────────────── */
+    @media (max-width: 768px) {
+      body {
+        background: #020617;
+      }
 
-    body.has-light-nav header.scrolled nav a {
-      color: #020617;
-    }
+      .smooth-wrapper {
+        inset: 0;
+        border-radius: 0;
+        background: #020617;
+        box-shadow: none;
+      }
 
-    nav a:hover {
-      transform: translateY(-2px);
+      .smooth-wrapper::before,
+      .smooth-wrapper::after {
+        display: none;
+      }
+
+      header {
+        top: 8px;
+        width: calc(100% - 16px);
+        max-width: none;
+        border-radius: 16px;
+      }
+
+      .header-inner {
+        padding: 10px 16px;
+      }
+
+      nav {
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 999px;
+        transition: all 0.3s ease;
+      }
+
+      /* Dark background sections (hero + freshest + footer) → light text */
+      body.has-dark-nav nav a {
+        color: rgba(255,255,255,0.95) !important;
+        background: rgba(255,255,255,0.12) !important;
+      }
+
+      header.scrolled body.has-dark-nav nav a {
+        color: #ffffff !important;
+        background: rgba(255,255,255,0.18) !important;
+      }
+
+      /* Light background section (promo) → dark text */
+      body.has-light-nav nav a {
+        color: #111827 !important;
+        background: rgba(0,0,0,0.07) !important;
+      }
+
+      header.scrolled body.has-light-nav nav a {
+        color: #020617 !important;
+        background: rgba(255,255,255,0.35) !important;
+      }
+
+      .corner-logo {
+        top: 18px;
+        left: 20px;
+      }
+
+      .corner-logo img {
+        height: 38px;
+      }
     }
 
     /* ─────────────── HERO ─────────────── */
@@ -531,49 +592,39 @@
 
     /* ─────────────── MOBILE RESPONSIVE ─────────────── */
     @media (max-width: 768px) {
-      body { background: #020617; }
-      .smooth-wrapper {
-        inset: 0;
-        border-radius: 0;
-        background: #020617;
-        box-shadow: none;
-      }
-      .smooth-wrapper::before,
-      .smooth-wrapper::after { display: none; }
-      header {
-        top: 8px;
-        width: calc(100% - 16px);
-        max-width: none;
-        border-radius: 16px;
-      }
-      .header-inner { padding: 10px 16px; }
-      nav { gap: 8px; }
-      nav a {
-        font-size: 13.5px;
-        font-weight: 600;
-        padding: 8px 14px;
-        background: rgba(255,255,255,0.08);
-        color: white !important;
-      }
-      .corner-logo { top: 18px; left: 20px; }
-      .corner-logo img { height: 38px; }
       .page {
         background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)), url("/assets/mob.png") center/cover no-repeat scroll;
       }
+
       .hero-wrap {
         padding: 100px 20px 80px;
         gap: 56px;
         transform: none;
       }
-      .devxpress-hero h1 { font-size: clamp(32px, 9.5vw, 44px); }
-      .devxpress-hero p { font-size: 17px; max-width: 90%; margin: 16px auto 0; }
-      .app-popup { position: fixed; bottom: 28px; right: 28px; }
+
+      .devxpress-hero h1 {
+        font-size: clamp(32px, 9.5vw, 44px);
+      }
+
+      .devxpress-hero p {
+        font-size: 17px;
+        max-width: 90%;
+        margin: 16px auto 0;
+      }
+
+      .app-popup {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+      }
+
       .app-tab {
         width: 68px;
         height: 68px;
         border-radius: 50%;
         font-size: 15px;
       }
+
       .app-box {
         position: absolute;
         bottom: 100px;
@@ -588,6 +639,7 @@
         transform: scale(0.92) translateY(20px);
         opacity: 0;
       }
+
       .app-popup.active .app-box {
         width: auto;
         padding: 24px 20px;
@@ -595,39 +647,69 @@
         transform: scale(1) translateY(0);
         opacity: 1;
       }
-      .app-content { text-align: center; margin-bottom: 16px; }
-      .phone { display: none; }
+
+      .app-content {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      .phone {
+        display: none;
+      }
+
       .freshest {
         background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)), url("/assets/poiu.jpg") center/cover no-repeat scroll;
         min-height: 90vh;
       }
-      .freshest-center h1 { font-size: clamp(34px, 10vw, 42px); }
+
+      .freshest-center h1 {
+        font-size: clamp(34px, 10vw, 42px);
+      }
+
       .float-wrapper {
         width: 110px;
         height: 110px;
         border-radius: 20px;
         border-width: 2.5px;
       }
-      .f3, .f4 { display: none; }
+
+      .f3, .f4 {
+        display: none;
+      }
+
       .f1 { top: 12%; left: 6%; animation-duration: 7s; }
       .f2 { top: 22%; right: 6%; animation-duration: 8.2s; animation-delay: 0.8s; }
       .f5 { bottom: 18%; left: 8%; animation-duration: 6.8s; animation-delay: 1.2s; }
       .f6 { bottom: 16%; right: 10%; animation-duration: 9s; animation-delay: 2s; }
+
       .promo-section {
         padding: 80px 24px 100px;
       }
+
       .promo-content {
         flex-direction: column;
         gap: 60px;
       }
+
       .promo-left h1,
-      .promo-left .subtitle { text-align: center; max-width: 100%; }
-      .store-buttons { justify-content: center; }
-      .promo-left h1 { font-size: 2.6rem; }
+      .promo-left .subtitle {
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .store-buttons {
+        justify-content: center;
+      }
+
+      .promo-left h1 {
+        font-size: 2.6rem;
+      }
+
       .phone-frame {
         width: 300px;
         height: 620px;
       }
+
       .inner-screen {
         top: 11.5%;
         left: 6.5%;
@@ -635,32 +717,39 @@
         height: 77%;
         border-radius: 34px;
       }
+
       .footer {
         padding: 60px 20px 40px;
       }
+
       .footer-container {
         flex-direction: column;
         gap: 48px;
         align-items: center;
         text-align: center;
       }
+
       .logo-box {
         width: 120px;
         height: 120px;
         margin: 0 auto 24px;
       }
+
       .footer .store-buttons {
         gap: 16px;
         margin-bottom: 32px;
       }
+
       .footer .store-buttons img {
         height: 46px;
       }
+
       .footer-links {
         gap: 40px;
         flex-wrap: wrap;
         justify-content: center;
       }
+
       .footer-bottom {
         flex-direction: column;
         gap: 12px;
@@ -674,21 +763,25 @@
         top: 62%;
         transform: translateY(-50%);
       }
+
       .app-tab {
         width: 60px;
         height: 140px;
         border-top-right-radius: 18px;
         border-bottom-right-radius: 18px;
       }
+
       .app-tab span {
         transform: rotate(-90deg);
         letter-spacing: .5px;
       }
+
       .app-box {
         width: 0;
         border-top-right-radius: 22px;
         border-bottom-right-radius: 22px;
       }
+
       .app-popup.active .app-box {
         width: 340px;
         padding: 20px;
@@ -696,7 +789,7 @@
     }
   </style>
 </head>
-<body>
+<body class="has-dark-nav">
 
 <header>
   <div class="header-inner">
@@ -735,7 +828,7 @@
               <h3>Download the app</h3>
               <img src="/assets/qrdev.jpg" class="qr" alt="QR Code">
             </div>
-            
+          </div>
         </div>
       </div>
     </section>
@@ -867,40 +960,81 @@ ScrollTrigger.scrollerProxy('.smooth-wrapper', {
 
 ScrollTrigger.defaults({ scroller: '.smooth-wrapper' });
 
-// Header scroll behavior
+// Header scroll + nav color behavior
 const header = document.querySelector("header");
+
+// Hero / dark sections
 ScrollTrigger.create({
   trigger: ".hero-wrap",
-  start: "bottom top+=40",
-  onEnter: () => header.classList.add("scrolled"),
+  start: "top center",
+  end: "bottom center",
+  onEnter: () => {
+    header.classList.add("scrolled");
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  },
+  onLeave: () => header.classList.remove("scrolled"),
+  onEnterBack: () => {
+    header.classList.add("scrolled");
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  },
   onLeaveBack: () => header.classList.remove("scrolled")
 });
 
-// Light section nav color
+// Freshest section (still dark)
+ScrollTrigger.create({
+  trigger: ".freshest",
+  start: "top 65%",
+  end: "bottom 35%",
+  onEnter: () => {
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  },
+  onLeave: () => {
+    // Keep dark until promo
+  },
+  onEnterBack: () => {
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  }
+});
+
+// Promo section (light)
 ScrollTrigger.create({
   trigger: ".promo-section",
-  start: "top 20%",
-  end: "bottom 80%",
-  onEnter: () => document.body.classList.add("has-light-nav"),
-  onLeave: () => document.body.classList.remove("has-light-nav"),
-  onEnterBack: () => document.body.classList.add("has-light-nav"),
-  onLeaveBack: () => document.body.classList.remove("has-light-nav")
+  start: "top 65%",
+  end: "bottom 35%",
+  onEnter: () => {
+    document.body.classList.add("has-light-nav");
+    document.body.classList.remove("has-dark-nav");
+  },
+  onLeave: () => {
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  },
+  onEnterBack: () => {
+    document.body.classList.add("has-light-nav");
+    document.body.classList.remove("has-dark-nav");
+  },
+  onLeaveBack: () => {
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  }
 });
 
-// Animations
-gsap.from(".devxpress-hero h1", {
-  y: 120, opacity: 0, duration: 1.8, ease: "power4.out",
-  scrollTrigger: { trigger: ".hero-wrap", start: "top 80%" }
-});
-
-gsap.from(".devxpress-hero p", {
-  y: 70, opacity: 0, duration: 1.4, delay: 0.4, ease: "power3.out",
-  scrollTrigger: { trigger: ".hero-wrap", start: "top 80%" }
-});
-
-gsap.from(".freshest-center h1", {
-  y: 120, opacity: 0, duration: 1.8, ease: "power4.out",
-  scrollTrigger: { trigger: ".freshest", start: "top 70%" }
+// Footer (dark again)
+ScrollTrigger.create({
+  trigger: ".footer",
+  start: "top 80%",
+  onEnter: () => {
+    document.body.classList.add("has-dark-nav");
+    document.body.classList.remove("has-light-nav");
+  },
+  onLeaveBack: () => {
+    document.body.classList.add("has-light-nav");
+    document.body.classList.remove("has-dark-nav");
+  }
 });
 
 // App popup toggle
