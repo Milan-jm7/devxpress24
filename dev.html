@@ -613,28 +613,35 @@
       .f2 { top: 22%; right: 6%; animation-duration: 8.2s; animation-delay: 0.8s; }
       .f5 { bottom: 18%; left: 8%; animation-duration: 6.8s; animation-delay: 1.2s; }
       .f6 { bottom: 16%; right: 10%; animation-duration: 9s; animation-delay: 2s; }
+
+      /* ─── PROMO SECTION MOBILE ─── */
       .promo-section {
         padding: 80px 24px 100px;
       }
       .promo-content {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
       }
-      .promo-left h1,
-      .promo-left .subtitle { text-align: center; max-width: 100%; }
-      .store-buttons { justify-content: center; }
-      .promo-left h1 { font-size: 2.6rem; }
-      .phone-frame {
-        width: 300px;
-        height: 620px;
+      .promo-right {
+        display: none;           /* Completely remove QR/phone section on mobile */
       }
-      .inner-screen {
-        top: 11.5%;
-        left: 6.5%;
-        width: 87%;
-        height: 77%;
-        border-radius: 34px;
+      .promo-left {
+        min-width: 100%;
+        flex: 1 1 100%;
+        text-align: center;
       }
+      .promo-left h1 {
+        font-size: clamp(2.4rem, 7vw, 3.2rem);
+      }
+      .promo-left .subtitle {
+        font-size: 1.15rem;
+        max-width: 100%;
+      }
+      .store-buttons {
+        justify-content: center;
+        gap: 20px;
+      }
+
       .footer {
         padding: 60px 20px 40px;
       }
@@ -735,7 +742,7 @@
               <h3>Download the app</h3>
               <img src="/assets/qrdev.jpg" class="qr" alt="QR Code">
             </div>
-            
+          </div>
         </div>
       </div>
     </section>
